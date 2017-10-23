@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
@@ -28,13 +29,17 @@ public class MainActivity extends AppCompatActivity
 
   private void checkInternetConnection()
   {
+    TextView textView = (TextView)findViewById(R.id.textView);
+
     if (isNetworkAvailable())
     {
       Toast.makeText(this, "Internet is working", Toast.LENGTH_SHORT).show();
+      textView.setText("Network Status: Connected");
     }
     else
     {
       Toast.makeText(this, "No internet connection found", Toast.LENGTH_SHORT).show();
+      textView.setText("Network Status: Not Connected");
     }
   }
 
