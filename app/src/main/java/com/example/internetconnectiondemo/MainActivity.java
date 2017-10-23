@@ -42,15 +42,15 @@ public class MainActivity extends AppCompatActivity
       Log.d("Demo", activeNetworkInfo.toString());
 
 //      textView.setText("Network Status: Connected");
-      textView.setText(activeNetworkInfo.toString().replace(',', '\n').replace('[', '').replace(']',''));
+      textView.setText(activeNetworkInfo.toString().replace(',', '\n'));
 
       if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI)
       {
-        textView2.setText("Type: Wifi");
+        textView2.setText("Type: " + activeNetworkInfo.getTypeName());
       }
       else if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE)
       {
-        textView2.setText("Type: Mobile");
+        textView2.setText("Type: " + activeNetworkInfo.getTypeName());
       }
     }
     else
