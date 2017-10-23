@@ -1,3 +1,10 @@
+/**
+ * This demo has the objective to verify the internet connection
+ * and show its information
+ *
+ * Author: Denis Nishida
+ */
+
 package com.example.internetconnectiondemo;
 
 import android.content.Context;
@@ -12,6 +19,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
+  /**
+   * This method obtains the object that represents the network
+   * @return
+   */
   private NetworkInfo getNetworkInfo()
   {
     ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -26,7 +37,7 @@ public class MainActivity extends AppCompatActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    checkInternetConnection();
+//    checkInternetConnection();
   }
 
   private void checkInternetConnection()
@@ -41,9 +52,10 @@ public class MainActivity extends AppCompatActivity
       Toast.makeText(this, "Internet is working", Toast.LENGTH_SHORT).show();
       Log.d("Demo", activeNetworkInfo.toString());
 
-//      textView.setText("Network Status: Connected");
+      // Write all the information in the first textview
       textView.setText(activeNetworkInfo.toString().replace(',', '\n'));
 
+      // This a second way of obtaining the connection type
       if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI)
       {
         textView2.setText("Type: " + activeNetworkInfo.getTypeName());
